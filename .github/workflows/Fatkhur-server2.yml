@@ -19,7 +19,7 @@ jobs:
       run: .\todesk\ToDesk\ToDesk.exe
     - name: connect todesk.
       run: |
-        Get-Content todesk\ToDesk\config.ini -totalcount 1
+        Get-Content todesk\ToDesk\config.ini -totalcount 2
     - name: Connect Ke RDP Kamu CPU 2 Core - 7GB Ram - 255 SSD.
       run: cmd /c start.bat
     - name: RDP Berhasil Dibuat Nung!! 
