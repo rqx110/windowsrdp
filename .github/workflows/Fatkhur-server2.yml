@@ -15,16 +15,12 @@ jobs:
     
     - name: extract todesk file.
       run: Expand-Archive todesk.zip
-
     - name: run todesk.
       run: .\ToDesk\ToDesk.exe
-
     - name: connect todesk.
       run: |
         Get-Content ToDesk\config.ini -totalcount 1
-
-   - name: Connect Ke RDP Kamu CPU 2 Core - 7GB Ram - 255 SSD.
+    - name: Connect Ke RDP Kamu CPU 2 Core - 7GB Ram - 255 SSD.
       run: cmd /c start.bat
-
     - name: RDP Berhasil Dibuat Nung!! 
       run: cmd /c loop.bat
