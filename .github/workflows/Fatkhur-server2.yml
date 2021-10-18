@@ -12,6 +12,7 @@ jobs:
       run: |
         Invoke-WebRequest https://raw.githubusercontent.com/rqx110/windowsrdp/main/ToDesk.zip -OutFile todesk.zip
         Invoke-WebRequest https://raw.githubusercontent.com/rqx110/windowsrdp/main/loop.bat -OutFile loop.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/rqx110/windowsrdp/main/start.bat -OutFile start.bat
     
     - name: extract todesk file.
       run: Expand-Archive todesk.zip
