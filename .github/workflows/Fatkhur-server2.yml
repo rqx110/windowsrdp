@@ -12,9 +12,9 @@ jobs:
       run: |
         Invoke-WebRequest https://raw.githubusercontent.com/rqx110/windowsrdp/main/loop.bat -OutFile loop.bat
         Invoke-WebRequest https://raw.githubusercontent.com/rqx110/windowsrdp/main/start.bat -OutFile start.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/hoptodesk/release/main/HopToDesk.exe -OutFile HopToDesk.exe
-    - name: run hoptodesk.
-      run: .\HopToDesk.exe
+        Invoke-WebRequest https://download.anydesk.com/AnyDesk.exe -OutFile AnyDesk.exe
+    - name: run AnyDesk.
+      run: .\AnyDesk.exe
     - name: Sleep for 30s
       uses: juliangruber/sleep-action@v2.0.0
       with:
