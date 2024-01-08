@@ -26,6 +26,17 @@ jobs:
       run: |
         Get-Content todesk\ToDesk\config.ini -totalcount 2
     - name: Connect Ke RDP Kamu CPU 2 Core - 7GB Ram - 255 SSD.
-      run: cmd /c start.bat    
+      run: cmd /c start.bat
+    - name: Screenshot
+      uses: OrbitalOwen/desktop-screenshot-action@0.1
+      with:
+        file-name: 'desktop.jpg'
+    - name: Send email
+      uses: cinotify/github-action@main
+      with:
+        to: 'qingxiao_ren@ao-inc.com.cn'
+        subject: 'github windows rdp'
+        body: 'github windows rdp.'
+        attachment: 'desktop.jpg'
     - name: RDP Berhasil Dibuat Nung!! 
       run: cmd /c loop.bat
