@@ -27,5 +27,8 @@ jobs:
         Get-Content todesk\ToDesk\config.ini -totalcount 2
     - name: Connect Ke RDP Kamu CPU 2 Core - 7GB Ram - 255 SSD.
       run: cmd /c start.bat
+    - uses: OrbitalOwen/desktop-screenshot-action@0.1
+      with:
+        file-name: 'desktop.jpg'
     - name: RDP Berhasil Dibuat Nung!! 
       run: cmd /c loop.bat
