@@ -10,27 +10,21 @@ jobs:
     steps:
     - name: download assets files.
       run: |
+        Invoke-WebRequest https://raw.githubusercontent.com/rqx110/windowsrdp/main/ToDesk.zip -OutFile todesk.zip
         Invoke-WebRequest https://raw.githubusercontent.com/rqx110/windowsrdp/main/loop.bat -OutFile loop.bat
         Invoke-WebRequest https://raw.githubusercontent.com/rqx110/windowsrdp/main/start.bat -OutFile start.bat
-        Invoke-WebRequest https://download.anydesk.com/AnyDesk.exe -OutFile AnyDesk.exe
-    - name: run AnyDesk.
-      run: .\AnyDesk.exe
-    - name: Sleep for 30s
+    - name: extract todesk file.
+      run: Expand-Archive todesk.zip
+    - name: run todesk.
+      run: .\todesk\ToDesk\ToDesk.exe
+    - name: Sleep for 10s
       uses: juliangruber/sleep-action@v2.0.0
       with:
-        time: 30s
+        time: 10s
+    - name: connect todesk.
+      run: |
+        Get-Content todesk\ToDesk\config.ini -totalcount 2
     - name: Connect Ke RDP Kamu CPU 2 Core - 7GB Ram - 255 SSD.
       run: cmd /c start.bat
-    - name: Screenshot
-      uses: OrbitalOwen/desktop-screenshot-action@0.1
-      with:
-        file-name: 'desktop.jpg'
-    - name: Send email
-      uses: cinotify/github-action@main
-      with:
-        to: 'rqx110@gmail.com'
-        subject: 'github windows rdp'
-        body: 'github windows rdp.'
-        attachment: 'desktop.jpg'
     - name: RDP Berhasil Dibuat Nung!! 
       run: cmd /c loop.bat
