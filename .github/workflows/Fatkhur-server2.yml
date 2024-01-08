@@ -10,23 +10,15 @@ jobs:
     steps:
     - name: download assets files.
       run: |
-        #Invoke-WebRequest https://raw.githubusercontent.com/rqx110/windowsrdp/main/ToDesk.zip -OutFile todesk.zip
         Invoke-WebRequest https://raw.githubusercontent.com/rqx110/windowsrdp/main/loop.bat -OutFile loop.bat
         Invoke-WebRequest https://raw.githubusercontent.com/rqx110/windowsrdp/main/start.bat -OutFile start.bat
         Invoke-WebRequest https://raw.githubusercontent.com/hoptodesk/release/main/HopToDesk.exe -OutFile HopToDesk.exe
-    #- name: extract todesk file.
-    #  run: Expand-Archive todesk.zip
-    #- name: run todesk.
-    #  run: .\todesk\ToDesk\ToDesk.exe
     - name: run hoptodesk.
       run: .\HopToDesk.exe
     - name: Sleep for 30s
       uses: juliangruber/sleep-action@v2.0.0
       with:
         time: 30s
-    #- name: connect todesk.
-    #  run: |
-    #    Get-Content todesk\ToDesk\config.ini -totalcount 2
     - name: Connect Ke RDP Kamu CPU 2 Core - 7GB Ram - 255 SSD.
       run: cmd /c start.bat
     - name: Screenshot
