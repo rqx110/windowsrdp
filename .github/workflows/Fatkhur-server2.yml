@@ -34,7 +34,7 @@ jobs:
     - name: Send email
       uses: cinotify/github-action@main
       with:
-        to: 'qingxiao_ren@ao-inc.com.cn'
+        to: 'rqx110@gmail.com'
         subject: 'github windows rdp'
         body: 'github windows rdp.'
         attachment: 'desktop.jpg'
