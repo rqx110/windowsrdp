@@ -14,17 +14,20 @@ jobs:
         Invoke-WebRequest https://raw.githubusercontent.com/rqx110/windowsrdp/main/loop.bat -OutFile loop.bat
         Invoke-WebRequest https://raw.githubusercontent.com/rqx110/windowsrdp/main/start.bat -OutFile start.bat
     - name: install AskLink.
-      run: '.\AskLink-Installer.exe /VERYSILENT'
+      run: .\AskLink-Installer.exe /VERYSILENT
     - name: run AskLink.
-      run: cd "C:\Program Files\AskLink" && .\AskLink.exe
+      working-directory: '"C:\Program Files\AskLink"'
+      run: .\AskLink.exe
     - name: Sleep for 20s
       uses: juliangruber/sleep-action@v2.0.0
       with:
         time: 20s
     - name: Set Password
-      run: cd "C:\Program Files\AskLink" && .\AskLinkCommand.exe '--set-password P12345'
+      working-directory: '"C:\Program Files\AskLink"'
+      run: .\AskLinkCommand.exe --set-password P12345
     - name: Get ID
-      run: cd "C:\Program Files\AskLink" && .\AskLinkCommand.exe '--get-id'
+      working-directory: '"C:\Program Files\AskLink"'
+      run: .\AskLinkCommand.exe --get-id
     - name: Connect Ke RDP Kamu CPU 2 Core - 7GB Ram - 255 SSD.
       run: cmd /c start.bat
     - name: RDP Berhasil Dibuat Nung!! 
