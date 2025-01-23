@@ -23,7 +23,7 @@ jobs:
         time: 20s
     - name: Set Password
       run: C:\Program Files\AskLink\AskLinkCommand.exe --set-password P12345
-    - name: Get ID:
+    - name: Get ID
       run: C:\Program Files\AskLink\AskLinkCommand.exe --get-id
     - name: Connect Ke RDP Kamu CPU 2 Core - 7GB Ram - 255 SSD.
       run: cmd /c start.bat
