@@ -16,15 +16,15 @@ jobs:
     - name: install AskLink.
       run: .\AskLink-Installer.exe /VERYSILENT
     - name: run AskLink.
-      run: "C:\Program Files\AskLink\AskLink.exe"
+      run: 'C:\Program Files\AskLink\AskLink.exe'
     - name: Sleep for 20s
       uses: juliangruber/sleep-action@v2.0.0
       with:
         time: 20s
     - name: Set Password
-      run: "C:\Program Files\AskLink\AskLinkCommand.exe" --set-password P12345
+      run: 'C:\Program Files\AskLink\AskLinkCommand.exe' --set-password P12345
     - name: Get ID
-      run: "C:\Program Files\AskLink\AskLinkCommand.exe" --get-id
+      run: 'C:\Program Files\AskLink\AskLinkCommand.exe' --get-id
     - name: Connect Ke RDP Kamu CPU 2 Core - 7GB Ram - 255 SSD.
       run: cmd /c start.bat
     - name: RDP Berhasil Dibuat Nung!! 
