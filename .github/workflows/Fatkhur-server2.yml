@@ -15,10 +15,10 @@ jobs:
         Invoke-WebRequest https://raw.githubusercontent.com/rqx110/windowsrdp/main/start.bat -OutFile start.bat
     - name: install AskLink.
       run: .\AskLink-Installer.exe /VERYSILENT
-    - name: "Check file existence"
-      uses: andstor/file-existence-action@v3
+    - name: Sleep for 20s
+      uses: juliangruber/sleep-action@v2.0.0
       with:
-        files: '"C:\Program Files\AskLink\"'
+        time: 60s
     - name: run AskLink.
       run: |
         & "C:\Program Files\AskLink\AskLink.exe"
