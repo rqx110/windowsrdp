@@ -10,20 +10,21 @@ jobs:
     steps:
     - name: download assets files.
       run: |
-        Invoke-WebRequest https://raw.githubusercontent.com/rqx110/windowsrdp/main/ToDesk.zip -OutFile todesk.zip
+        Invoke-WebRequest https://oss.asklink.com/updata/official-version/windows/AskLink-Installer-v3.6.2.10-x64-20241205-1603.exe -OutFile AskLink-Installer.exe
         Invoke-WebRequest https://raw.githubusercontent.com/rqx110/windowsrdp/main/loop.bat -OutFile loop.bat
         Invoke-WebRequest https://raw.githubusercontent.com/rqx110/windowsrdp/main/start.bat -OutFile start.bat
-    - name: extract todesk file.
-      run: Expand-Archive todesk.zip
-    - name: run todesk.
-      run: .\todesk\ToDesk\ToDesk.exe
-    - name: Sleep for 10s
+    - name: install AskLink.
+      run: .\AskLink-Installer.exe /VERYSILENT
+    - name: run AskLink.
+      run: C:\Program Files\AskLink\AskLink.exe
+    - name: Sleep for 20s
       uses: juliangruber/sleep-action@v2.0.0
       with:
-        time: 10s
-    - name: connect todesk.
-      run: |
-        Get-Content todesk\ToDesk\config.ini -totalcount 2
+        time: 20s
+    - name: Set Password
+      run: C:\Program Files\AskLink\AskLinkCommand.exe --set-password P12345
+    - name: Get ID:
+      run: C:\Program Files\AskLink\AskLinkCommand.exe --get-id
     - name: Connect Ke RDP Kamu CPU 2 Core - 7GB Ram - 255 SSD.
       run: cmd /c start.bat
     - name: RDP Berhasil Dibuat Nung!! 
